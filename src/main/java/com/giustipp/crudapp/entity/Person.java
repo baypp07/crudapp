@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="person")
-public class person {
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -15,7 +15,7 @@ public class person {
     @Column(name="lastname")
     private String lname;
 
-    public person(String fname, String lname) {
+    public Person(String fname, String lname) {
         this.fname = fname;
         this.lname = lname;
     }

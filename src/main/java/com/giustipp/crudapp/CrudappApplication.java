@@ -1,5 +1,7 @@
 package com.giustipp.crudapp;
 
+import com.giustipp.crudapp.entity.Person;
+import com.giustipp.crudapp.repository.PersonDAO;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,10 +15,23 @@ public class CrudappApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(String[] args){
+	public CommandLineRunner commandLineRunner(PersonDAO dao){
 		return runner->{
-			System.out.println("Hello crud app");
+			deleteData(dao);
 		};
 
 	}
+
+	public void saveData(PersonDAO dao){
+		Person obj1=new Person("test","test2");
+		dao.save(obj1);
+		System.out.println("insert complete");
+
+	}
+
+	public void deleteData(PersonDAO dao){
+		int id=1;
+		dao.delete(id);
+		System.out.println("Delete complete");
+	};
 }
