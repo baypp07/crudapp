@@ -7,4 +7,5 @@ public interface PersonDAO {
     void delete(Integer id);
     Person get(Integer id);
     List<Person>getAll();
+    void update(Person person);
 }

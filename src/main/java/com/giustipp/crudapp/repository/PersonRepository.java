@@ -41,4 +41,10 @@ public class PersonRepository implements PersonDAO{
        TypedQuery<Person> query = entityManager.createQuery("FROM Person", Person.class);
         return query.getResultList();
     }
+
+    @Override
+    @Transactional
+    public void update(Person person) {
+        entityManager.merge(person);
+    }
 }

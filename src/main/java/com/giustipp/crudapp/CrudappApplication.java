@@ -18,7 +18,7 @@ public class CrudappApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(PersonDAO dao){
 		return runner->{
-			getAllData(dao);
+			updateData(dao);
 		};
 
 	}
@@ -48,4 +48,15 @@ public class CrudappApplication {
 			System.out.println(person);
 		}
 	}
+
+	public void updateData(PersonDAO dao){
+		int id = 2;
+		Person myPerson = dao.get(id);
+		myPerson.setFname("eva");
+		myPerson.setLname("la plus jolie");
+		dao.update(myPerson);
+		System.out.println("update complete");
+	}
+
+
 }
