@@ -27,4 +27,9 @@ public class PersonRepository implements PersonDAO{
         Person person= entityManager.find(Person.class,id);
         entityManager.remove(person);
     }
+
+    @Override
+    public Person get(Integer id){
+        return entityManager.find(Person.class,id);
+    }
 }

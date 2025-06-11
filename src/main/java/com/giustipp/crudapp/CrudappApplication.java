@@ -23,15 +23,21 @@ public class CrudappApplication {
 	}
 
 	public void saveData(PersonDAO dao){
-		Person obj1=new Person("test","test2");
+		Person obj1=new Person("mini","mimi");
 		dao.save(obj1);
 		System.out.println("insert complete");
 
 	}
 
 	public void deleteData(PersonDAO dao){
-		int id=1;
+		int id=3;
 		dao.delete(id);
 		System.out.println("Delete complete");
 	};
+
+	public void getData(PersonDAO dao){
+		int id= 1;
+		Person person = dao.get(id);
+		System.out.println(person);
+	}
 }

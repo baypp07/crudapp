@@ -1,5 +1,6 @@
 package com.giustipp.crudapp.entity;
 import jakarta.persistence.*;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name="person")
@@ -19,7 +20,9 @@ public class Person {
         this.fname = fname;
         this.lname = lname;
     }
+    public Person(){
 
+    };
     public int getId() {
         return id;
     }
@@ -46,7 +49,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "person{" +
+        return "Person{" +
                 "id=" + id +
                 ", fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +
