@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import java.util.List;
 
 @SpringBootApplication
 public class CrudappApplication {
@@ -17,7 +18,7 @@ public class CrudappApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(PersonDAO dao){
 		return runner->{
-			deleteData(dao);
+			getAllData(dao);
 		};
 
 	}
@@ -39,5 +40,12 @@ public class CrudappApplication {
 		int id= 1;
 		Person person = dao.get(id);
 		System.out.println(person);
+	}
+
+	public void getAllData(PersonDAO dao){
+		List<Person> data = dao.getAll();
+		for(Person person:data){
+			System.out.println(person);
+		}
 	}
 }
